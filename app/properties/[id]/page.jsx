@@ -1,6 +1,6 @@
 "use client";
 
-const PropertyPage = () => {
+const PropertyIdPage = () => {
   return (
     <div>
       <button className="bg-blue-500 p-2">Go home</button>
@@ -8,4 +8,4 @@ const PropertyPage = () => {
   );
 };
 
-export default PropertyPage;
+export default PropertyIdPage;
