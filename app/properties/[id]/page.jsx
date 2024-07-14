@@ -1,6 +1,7 @@
 "use client";
 import PropertyDetails from "@/components/PropertyDetails";
 import PropertyHeaderImage from "@/components/PropertyHeaderImage";
+import PropertyImages from "@/components/PropertyImages";
 import Spinner from "@/components/Spinner";
 import { fetchProperty } from "@/utils/requests";
 import Link from "next/link";
@@ -151,6 +152,7 @@ const PropertyIdPage = () => {
               </div>
             </div>
           </section>
+          <PropertyImages images={property.images} />
         </>
       )}
     </>
