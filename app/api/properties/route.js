@@ -42,7 +42,6 @@ export const POST = async (request) => {
     const propertyData = {
       type: formData.get("type"),
       name: formData.get("name"),
-      name: formData.get("name"),
       description: formData.get("description"),
       location: {
         street: formData.get("location.street"),

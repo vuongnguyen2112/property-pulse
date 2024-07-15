@@ -23,7 +23,7 @@ async function fetchProperties() {
   }
 }
 
-// fetch properties by id
+// fetch property by id
 async function fetchProperty(id) {
   try {
     // if domain is unavailable yet
