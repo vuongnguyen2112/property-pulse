@@ -15,7 +15,7 @@ const PropertiesPage = async () => {
           <PropertySearchForm />
         </div>
       </section>
-      <section className="px-4 py-6">
+      <section className="px-4 py-6 mb-6">
         <div className="container-xl lg:container m-auto px-4 py-6">
           {properties.length === 0 ? (
             <div>No Properties Found</div>

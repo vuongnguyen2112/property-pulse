@@ -8,13 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          "Segoe UI Historic",
-          "Segoe UI",
-          "Helvetica",
-          "Arial",
-          "sans-serif",
-        ],
+        sans: ["Segoe UI", "Helvetica", "Arial", "sans-serif"],
       },
       gridTemplateColumns: {
         "70/30": "70% 28%",
