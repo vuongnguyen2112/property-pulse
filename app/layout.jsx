@@ -3,8 +3,10 @@ import AuthProvider from "@/components/AuthProvider";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/NavBar";
 import { GlobalProvider } from "@/context/GlobalContext";
+import Script from "next/script";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "photoswipe/dist/photoswipe.css";
 
 export const metadata = {
   title: "PropertyPulse | Find the perfect rental",

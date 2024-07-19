@@ -1,5 +1,6 @@
 import cloudinary from "@/config/cloudinary";
 import connectDb from "@/config/database";
+import { defaultPage, defaultPageSize } from "@/constants/properties";
 import Property from "@/models/Property";
 import { getSessionUser } from "@/utils/getSessionUser";
 
@@ -8,9 +9,22 @@ export const GET = async (request) => {
   try {
     await connectDb();
 
-    const properties = await Property.find({});
+    const page = request.nextUrl.searchParams.get("page") || defaultPage;
+    const pageSize =
+      request.nextUrl.searchParams.get("pageSize") || defaultPageSize;
 
-    return new Response(JSON.stringify(properties), {
+    const skip = (page - 1) * pageSize;
+
+    const total = await Property.countDocuments({});
+
+    const properties = await Property.find({}).skip(skip).limit(pageSize);
+
+    const result = {
+      total,
+      properties,
+    };
+
+    return new Response(JSON.stringify(result), {
       status: 200,
     });
   } catch (error) {
@@ -19,6 +33,7 @@ export const GET = async (request) => {
   }
 };
 
+// POST api/properties
 export const POST = async (request) => {
   try {
     await connectDb();
