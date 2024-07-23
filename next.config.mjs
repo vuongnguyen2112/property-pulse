@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-import path from "path";
-
 const nextConfig = {
   env: {
     // NOTE: Use VERCEL_URL to dynamically set NEXTAUTH_URL for Vercel deployments,
@@ -23,13 +21,6 @@ const nextConfig = {
         pathname: "**",
       },
     ],
-  },
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      "@": path.resolve(__dirname, "./"),
-    };
-    return config;
   },
 };
 
