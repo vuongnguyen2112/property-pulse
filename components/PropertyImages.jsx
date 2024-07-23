@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Gallery, Item } from "react-photoswipe-gallery";
 
@@ -31,11 +32,13 @@ const PropertyImages = ({ images }) => {
               {images.map((image, index) => (
                 <div
                   key={index}
-                  className={`${
+                  className={`
+                  ${
                     images.length === 3 && index === 2
                       ? "col-span-2"
                       : "col-span-1"
-                  }`}
+                  }
+                `}
                 >
                   <Item
                     original={image}
@@ -66,5 +69,4 @@ const PropertyImages = ({ images }) => {
     </Gallery>
   );
 };
-
 export default PropertyImages;

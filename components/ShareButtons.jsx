@@ -1,27 +1,32 @@
+"use client";
 import {
-  EmailIcon,
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
   EmailShareButton,
   FacebookIcon,
-  FacebookShareButton,
   TwitterIcon,
-  TwitterShareButton,
   WhatsappIcon,
-  WhatsappShareButton,
+  EmailIcon,
 } from "react-share";
 
-const ShareButtons = ({ property }) => {
-  const shareUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/properties/${property._id}`;
+const ShareButtons = ({ property, PUBLIC_DOMAIN }) => {
+  // NOTE: here we receive a prop from our parent page component which is
+  // server rendered and knows if we are in deployed to Vercel or developing
+  // locally.
+
+  const shareUrl = `${PUBLIC_DOMAIN}/properties/${property._id}`;
 
   return (
     <>
       <h3 className="text-xl font-bold text-center pt-2">
         Share This Property:
       </h3>
-      <div className="flex gap-4 justify-center pb-5">
+      <div className="flex gap-3 justify-center pb-5">
         <FacebookShareButton
           url={shareUrl}
           quote={property.name}
-          hashtag={`#${property.type}ForRent`}
+          hashtag={`#${property.type.replace(/\s/g, "")}ForRent`}
         >
           <FacebookIcon size={40} round={true} />
         </FacebookShareButton>
@@ -53,5 +58,4 @@ const ShareButtons = ({ property }) => {
     </>
   );
 };
-
 export default ShareButtons;
