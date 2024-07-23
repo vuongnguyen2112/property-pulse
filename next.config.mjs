@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const __dirname = new URL(".", import.meta.url).pathname;
+
 const nextConfig = {
   env: {
     // NOTE: Use VERCEL_URL to dynamically set NEXTAUTH_URL for Vercel deployments,
@@ -7,6 +9,7 @@ const nextConfig = {
       ? `https://${process.env.VERCEL_URL}`
       : "http://localhost:3000",
   },
+
   images: {
     remotePatterns: [
       {
@@ -20,6 +23,13 @@ const nextConfig = {
         pathname: "**",
       },
     ],
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": path.resolve(__dirname, "./"),
+    };
+    return config;
   },
 };
 
